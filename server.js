@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 app.post("/signin", (req, res) => {
   // Load hash from your password DB.
   bcrypt.compare(
-    "banana",
+    "cookies",
     "$2a$10$q/DmvdsS9o.SRoxHUOR2KeyUIeg7V/9y.19PXezrnVqskwzrJ1q5e",
     function (err, res) {
       console.log("first guess:", res);
@@ -60,7 +60,7 @@ app.post("/signin", (req, res) => {
     req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
   ) {
-    res.json("success");
+    res.json(database.users[0]);
   } else {
     res.status(400).json("error logging in");
   }
@@ -97,7 +97,7 @@ app.get("/profile/:id", (req, res) => {
   }
 });
 
-app.post("/image", (req, res) => {
+app.put("/image", (req, res) => {
   const { id } = req.body;
   let found = false;
   database.users.forEach((user) => {
