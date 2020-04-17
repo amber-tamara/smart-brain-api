@@ -47,9 +47,6 @@ app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-const DATABASE_URL = process.env.DATABASE_URL;
 app.listen(3000, () => {
-  console.log(`Server is listening on port ${DATABASE_URL}`);
+  console.log("Server is listening on port 3000");
 });
-
-console.log(3000);
